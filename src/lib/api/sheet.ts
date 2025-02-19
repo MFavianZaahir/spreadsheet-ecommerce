@@ -7,7 +7,7 @@ export async function fetchSheetData(page = 1, pageSize = 25, filters: Filters =
   try {
 
     const auth = new google.auth.JWT(
-      process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL,
+      process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
       undefined,
       privateKey,
       ["https://www.googleapis.com/auth/spreadsheets"]
@@ -17,7 +17,7 @@ export async function fetchSheetData(page = 1, pageSize = 25, filters: Filters =
     const sheets = google.sheets({ version: 'v4', auth });
 
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.NEXT_PUBLIC_GOOGLE_SHEET_ID,
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
       range: 'Sheet1!A1:N3000',
     });
 
