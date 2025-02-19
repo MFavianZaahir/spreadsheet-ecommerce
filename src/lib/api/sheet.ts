@@ -17,7 +17,7 @@ export async function fetchSheetData(page = 1, pageSize = 25, filters: Filters =
     const sheets = google.sheets({ version: 'v4', auth });
 
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      spreadsheetId: "1Y4u4Jw03U9angVNJqiI614aWV3vk6vAp2GdcGUAbL8E",
       range: 'Sheet1!A1:N3000',
     });
 
