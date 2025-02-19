@@ -1,4 +1,4 @@
-import { ProductsGridProps } from "@/types/entites"
+import { ProductsGridProps } from "@/types/entities"
 import { ProductCard } from "./product-card"
 
 export function ProductsGrid({ items }: ProductsGridProps) {
@@ -8,15 +8,14 @@ export function ProductsGrid({ items }: ProductsGridProps) {
           <ProductCard
           key={index}
           id={index +3}
-          name={item[1]}
-          category={item[3]}
-          stock={item[11]}
-          variant={item[6]}
-          price={Number.parseInt(item[8])}
+          name={String(item[1])}
+          category={String(item[3])}
+          stock={Number(item[11])}
+          variant={String(item[6])}
+          price={Number.parseInt(String(item[8]))}
           image="/logo.png?height=200&width=200"
         />
       ))}
     </div>
   )
 }
-

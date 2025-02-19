@@ -2,20 +2,22 @@
 
 import { fetchSheetData } from "../api/sheet"
 
-export async function searchProducts(formData: FormData) {
-  const name = formData.get("name") as string
-  const minPrice = formData.get("minPrice") as string
-  const maxPrice = formData.get("maxPrice") as string
-  const minStock = formData.get("minStock") as string
-  const page = formData.get("page") as string
-
-  const filters: { [key: string]: string | number } = {}
-  if (name) filters.name = name
-  if (minPrice) filters.minPrice = Number.parseInt(minPrice)
-  if (maxPrice) filters.maxPrice = Number.parseInt(maxPrice)
-  if (minStock) filters.minStock = Number.parseInt(minStock)
-
-  const result = await fetchSheetData(Number.parseInt(page) || 1, 25, filters)
-  return result.props
+interface SearchProductsParams {
+  page: number
+  name?: string
+  minPrice?: number
+  maxPrice?: number
+  minStock?: number
 }
 
+export async function searchProducts({ page, name, minPrice, maxPrice, minStock }: SearchProductsParams) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const filters: any = {}
+  if (name) filters.name = name
+  if (minPrice !== undefined) filters.minPrice = minPrice
+  if (maxPrice !== undefined) filters.maxPrice = maxPrice
+  if (minStock !== undefined) filters.minStock = minStock
+
+  const result = await fetchSheetData(page, 25, filters)
+  return result.props
+}

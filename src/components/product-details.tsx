@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { useAtom } from "jotai"
 import { addToCartAtom } from "@/store/cart-store"
 import { formatPrice } from "@/lib/IdrFormatter"
-import { ProductDetailProps } from "@/types/entites"
+import type { ProductDetailProps } from "@/types/entities"
 
 export function ProductDetail({
   id,

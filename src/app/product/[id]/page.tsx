@@ -1,13 +1,12 @@
 import { fetchSheetData } from "@/lib/api/sheet"
 import { ProductDetail } from "@/components/product-details"
-import { Props } from "@/types/entites";
+import { Props } from "@/types/entities";
 
 export default async function ProductPage({ params }: Props) {
+  
   const { id } = await params;
-
   const data = await fetchSheetData();
   const products = data.props.items.slice(2);
-
   const product = products.find((item) => String(item[0]) === id);
 
   if (!product) {

@@ -1,42 +1,41 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useAtom } from "jotai";
-import { cartAtom, removeItemAtom, updateQuantityAtom, clearCartAtom } from "@/store/cart-store";
-import { formatPrice } from "@/lib/IdrFormatter";
-import { createWhatsAppLink } from "@/lib/whatsapp";
-import { Trash2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { useAtom } from "jotai"
+import { cartAtom, removeItemAtom, updateQuantityAtom, clearCartAtom } from "@/store/cart-store"
+import { formatPrice } from "@/lib/IdrFormatter"
+import { createWhatsAppLink } from "@/lib/whatsapp"
+import { Trash2 } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export default function CartPage() {
-  const [hydrated, setHydrated] = useState(false);
-  const [items] = useAtom(cartAtom);
-  const [, removeItem] = useAtom(removeItemAtom);
-  const [, updateQuantity] = useAtom(updateQuantityAtom);
-  const [, clearCart] = useAtom(clearCartAtom);
+  const [hydrated, setHydrated] = useState(false)
+  const [items] = useAtom(cartAtom)
+  const [, removeItem] = useAtom(removeItemAtom)
+  const [, updateQuantity] = useAtom(updateQuantityAtom)
+  const [, clearCart] = useAtom(clearCartAtom)
 
-  // ✅ Fix hydration issue with localStorage
   useEffect(() => {
-    setHydrated(true);
-  }, []);
+    setHydrated(true)
+  }, [])
 
-  if (!hydrated) return null; // Prevent flickering
+  if (!hydrated) return null
 
-  const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
   if (items.length === 0) {
     return (
       <div className="container mx-auto px-4 py-8 text-center">
         <h1 className="text-3xl font-bold mb-4">Keranjang Belanja</h1>
         <p className="mb-4">Keranjang belanja Anda kosong</p>
-        <Link href="/product">
+        <Link href="/products">
           <Button>Lihat Produk</Button>
         </Link>
       </div>
-    );
+    )
   }
 
   return (
@@ -86,5 +85,5 @@ export default function CartPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

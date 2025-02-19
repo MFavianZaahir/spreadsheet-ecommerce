@@ -24,7 +24,6 @@ const storage = {
 
 export const cartAtom = atomWithStorage<CartItem[]>("cart", [], storage);
 
-// ✅ Modify atoms to work with persistent storage
 export const addToCartAtom = atom(null, (get, set, item: CartItem) => {
   const cart = get(cartAtom) as CartItem[];
   const existing = cart.find((i: CartItem) => i.id === item.id && i.variant === item.variant);

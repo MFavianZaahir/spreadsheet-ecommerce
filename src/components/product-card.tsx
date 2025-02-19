@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { formatPrice } from "@/lib/IdrFormatter"
-import { ProductCardProps } from "@/types/entites"
+import { ProductCardProps } from "@/types/entities"
 
 export function ProductCard({ id, name, category, stock, price, image }: ProductCardProps) {
   return (

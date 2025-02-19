@@ -1,4 +1,4 @@
-import { Filters } from '@/types/entites';
+import { Filters } from '@/types/entities';
 import { google } from 'googleapis';
 
 const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
@@ -31,13 +31,13 @@ export async function fetchSheetData(page = 1, pageSize = 25, filters: Filters =
       values = values.filter((row) => row[1]?.toLowerCase().includes(filters.name?.toLowerCase() ?? ''))
     }
     if (filters.minPrice !== undefined) {
-      values = values.filter((row) => Number.parseInt(row[7]) >= (filters.minPrice ?? 0))
+      values = values.filter((row) => Number.parseInt(row[8]) >= (filters.minPrice ?? 0))
     }
     if (filters.maxPrice !== undefined) {
-      values = values.filter((row) => Number.parseInt(row[7]) <= (filters.maxPrice ?? Infinity))
+      values = values.filter((row) => Number.parseInt(row[8]) <= (filters.maxPrice ?? Infinity))
     }
     if (filters.minStock !== undefined) {
-      values = values.filter((row) => Number.parseInt(row[10]) >= (filters.minStock ?? 0))
+      values = values.filter((row) => Number.parseInt(row[11]) >= (filters.minStock ?? 0))
     }
     if (!values || values.length === 0) {
       throw new Error("No data found");

@@ -3,13 +3,10 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ShoppingCart } from "lucide-react"
-import { usePathname } from "next/navigation"
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-provider"
 
 export function Navbar() {
-  const pathname = usePathname()
   const { items } = useCart()
   const itemCount = items.reduce((acc, item) => acc + item.quantity, 0)
 
@@ -25,14 +22,6 @@ export function Navbar() {
             className="object-contain"
           />
         </Link>
-
-        {pathname !== "/" && (
-          <div className="flex-1 max-w-xl mx-4">
-            <div className="relative">
-              <Input type="search" placeholder="Cari produk..." className="w-full pl-10" />
-            </div>
-          </div>
-        )}
 
         <Link href="/cart">
           <Button variant="ghost" className="relative">
