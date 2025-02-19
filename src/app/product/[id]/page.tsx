@@ -6,7 +6,7 @@ export default async function ProductPage({ params }: Props) {
   
   const { id } = await params;
   const data = await fetchSheetData();
-  const products = data.props.items.slice(2);
+  const products = data.props.items
   const product = products.find((item) => String(item[0]) === id);
 
   if (!product) {
@@ -17,9 +17,8 @@ export default async function ProductPage({ params }: Props) {
     <div className="container mx-auto px-4 py-8">
       <ProductDetail
         id={Number(product[0])}
-        name={String(product[2])}
+        name={String(product[1])}
         category={String(product[3])}
-        brand={String(product[4])}
         description={String(product[5])}
         variant={String(product[6])}
         price={Number.parseInt(String(product[8])) || 0}

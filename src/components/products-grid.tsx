@@ -7,7 +7,7 @@ export function ProductsGrid({ items }: ProductsGridProps) {
       {items.map((item, index: number) => (
           <ProductCard
           key={index}
-          id={index +3}
+          id={Number(item[0])}
           name={String(item[1])}
           category={String(item[3])}
           stock={Number(item[11])}

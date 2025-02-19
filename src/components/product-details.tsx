@@ -13,7 +13,6 @@ export function ProductDetail({
   id,
   name,
   category,
-  brand,
   description,
   variant,
   price,
@@ -41,7 +40,6 @@ export function ProductDetail({
       </div>
       <div>
         <h1 className="text-3xl font-bold mb-2">{name}</h1>
-        <p className="text-lg text-muted-foreground mb-4">{brand}</p>
         <div className="space-y-4">
           <div>
             <h3 className="font-semibold mb-1">Kategori</h3>

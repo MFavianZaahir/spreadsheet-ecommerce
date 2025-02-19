@@ -16,7 +16,6 @@ export interface ProductDetailProps {
     id: number
     name: string
     category: string
-    brand: string
     description: string
     variant: string
     price: number
