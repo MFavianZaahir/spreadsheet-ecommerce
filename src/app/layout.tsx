@@ -15,9 +15,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Toko Cak Sya'",
     description: "Temukan berbagai sembako dan bahan kue berkualitas dengan harga terbaik di Pasar Lawang.",
-    url: "https://tokocaksya.com",
+    url: "https://tokocaksya.vercel.app",
     type: "website",
     images: [{ url: "https://images.tokopedia.net/img/cache/215-square/GAnVPX/2022/8/4/8f5a399a-15f6-4109-b4c9-d9ea82e3b903.jpg" }],
+  }, 
+  icons: {
+    icon: './logo.png',
   }
 };
 

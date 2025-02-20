@@ -2,29 +2,7 @@
 
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-
-const carouselImages = [
-  {
-    url: "/hero.jpg",
-    title: "Kebutuhan Pokok Lengkap",
-    description: "Temukan berbagai kebutuhan sehari-hari untuk keluarga Anda",
-  },
-  {
-    url: "/hero2.jpg",
-    title: "Produk Berkualitas",
-    description: "Kami menyediakan produk-produk terbaik untuk Anda",
-  },
-  {
-    url: "/hero3.jpg",
-    title: "Harga Bersaing",
-    description: "Dapatkan harga terbaik untuk setiap pembelian",
-  },
-  {
-    url: "/hero4.jpg",
-    title: "Harga Bersaing",
-    description: "Dapatkan harga terbaik untuk setiap pembelian",
-  },
-]
+import { carouselImages } from "@/types/constants"
 
 export function HomeCarousel() {
   return (
@@ -38,9 +16,9 @@ export function HomeCarousel() {
       <CarouselContent>
         {carouselImages.map((image, index) => (
           <CarouselItem key={index}>
-            <div className="relative h-[600px] w-full">
+            <div className="relative h-[500px] w-full">
               <Image
-                src={image.url || "/logo.png"}
+                src={image.url || "/placeholder.svg"}
                 alt={image.title}
                 fill
                 className="object-cover brightness-50"

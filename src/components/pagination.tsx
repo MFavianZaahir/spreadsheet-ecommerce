@@ -1,20 +1,9 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-
-interface PaginationControlsProps {
-  totalPages: number
-  currentPage: number
-  searchParams: {
-    name?: string
-    minPrice?: string
-    maxPrice?: string
-    minStock?: string
-  }
-}
+import { PaginationControlsProps } from "@/types/entities"
 
 export function PaginationControls({ totalPages, currentPage, searchParams }: PaginationControlsProps) {
-  // Ensure totalPages and currentPage are valid numbers
   const validTotalPages = Math.max(1, isNaN(totalPages) ? 1 : totalPages)
   const validCurrentPage = Math.min(Math.max(1, isNaN(currentPage) ? 1 : currentPage), validTotalPages)
 
